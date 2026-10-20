@@ -1,0 +1,208 @@
+/* CampusRide prototype styles
+   Palette checked for WCAG 2.0 AA contrast (4.5:1 normal text, 3:1 large text). */
+:root {
+  --primary: #1B5E9B;
+  --primary-dark: #134874;
+  --green: #1E7B4F;
+  --warm: #B45309;
+  --text: #1A2433;
+  --muted: #4A5568;
+  --bg: #F4F8FB;
+  --card: #FFFFFF;
+  --border: #C9D5E1;
+  --input-border: #5B6B7C;
+  --danger: #B42318;
+  --focus: #0B2E59;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 100%; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.container { width: 100%; max-width: 62rem; margin: 0 auto; padding: 0 1rem; }
+
+h1, h2, h3 { line-height: 1.25; margin: 0 0 .6rem; color: var(--text); }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.45rem; margin-top: 1.8rem; }
+h3 { font-size: 1.15rem; }
+p { margin: 0 0 1rem; }
+a { color: var(--primary); text-decoration: underline; }
+a:hover { color: var(--primary-dark); }
+
+/* Focus: strong, visible indicator for keyboard users (WCAG 2.4.7) */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, summary:focus-visible, .day input:focus-visible + span {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px #FFFFFF;
+}
+
+.skip-link {
+  position: absolute; left: -999px; top: 0; z-index: 100;
+  background: var(--focus); color: #fff; padding: .7rem 1rem;
+}
+.skip-link:focus { left: 0; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* Prototype banner and header */
+.proto-banner {
+  background: #FEF3C7; color: #78350F; text-align: center;
+  font-size: .9rem; padding: .35rem 1rem;
+}
+
+.site-header { background: #fff; border-bottom: 2px solid var(--border); }
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: .5rem; padding-top: .6rem; padding-bottom: .6rem;
+}
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-dark); text-decoration: none; }
+.logo span { color: var(--green); }
+
+#site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: .25rem; flex-wrap: wrap; }
+#site-nav a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 .9rem;
+  color: var(--text); text-decoration: none; font-weight: 600; border-radius: .5rem;
+}
+#site-nav a:hover { background: #E8F0F8; }
+#site-nav a[aria-current="page"] { background: var(--primary); color: #fff; }
+
+.nav-toggle {
+  display: none; min-height: 44px; padding: 0 1rem; font: inherit; font-weight: 600;
+  background: #fff; color: var(--primary-dark); border: 2px solid var(--primary); border-radius: .5rem;
+}
+
+@media (max-width: 40rem) {
+  .nav-toggle { display: inline-flex; align-items: center; }
+  #site-nav { display: none; width: 100%; }
+  #site-nav.open { display: block; }
+  #site-nav ul { flex-direction: column; }
+  h1 { font-size: 1.6rem; }
+}
+
+main.container { padding: 1.5rem 1rem 3rem; }
+
+/* Buttons: one primary style for the main action on every page (consistency) */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  min-height: 44px; min-width: 44px; padding: .55rem 1.3rem;
+  font: inherit; font-weight: 600; text-decoration: none; cursor: pointer;
+  color: #fff; background: var(--primary); border: 2px solid var(--primary); border-radius: .6rem;
+  transition: background .15s ease;
+}
+.btn:hover { background: var(--primary-dark); border-color: var(--primary-dark); color: #fff; }
+.btn-secondary { background: #fff; color: var(--primary-dark); }
+.btn-secondary:hover { background: #E8F0F8; color: var(--primary-dark); }
+.btn-danger { background: #fff; color: var(--danger); border-color: var(--danger); }
+.btn-danger:hover { background: #FEE4E2; color: var(--danger); border-color: var(--danger); }
+.btn-large { font-size: 1.2rem; padding: .9rem 1.8rem; min-height: 56px; }
+.btn[disabled], .btn[aria-disabled="true"] { background: #E5E9EE; border-color: #8A96A3; color: #3F4A57; cursor: not-allowed; }
+
+/* Hero */
+.hero { background: linear-gradient(135deg, #E3F0FA 0%, #E5F4EC 100%); border-radius: 1rem; padding: 2.2rem 1.5rem; margin-bottom: 1.5rem; }
+.hero p { font-size: 1.2rem; max-width: 40rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.2rem; }
+
+.grid-3 { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.card { background: var(--card); border: 2px solid var(--border); border-radius: .8rem; padding: 1.1rem 1.2rem; }
+.card h3 { margin-top: 0; }
+.step-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--green); color: #fff; font-weight: 700; margin-bottom: .5rem;
+}
+
+/* Forms */
+form .field { margin-bottom: 1.2rem; }
+label, legend { display: block; font-weight: 600; margin-bottom: .3rem; padding: 0; }
+.hint { display: block; font-size: .95rem; color: var(--muted); font-weight: 400; margin-bottom: .3rem; }
+input[type="text"], input[type="email"], input[type="password"], input[type="time"], input[type="number"], select, textarea {
+  width: 100%; max-width: 28rem; min-height: 44px; padding: .5rem .7rem; font: inherit; color: var(--text);
+  background: #fff; border: 2px solid var(--input-border); border-radius: .5rem;
+}
+fieldset { border: 0; margin: 0 0 1.2rem; padding: 0; min-width: 0; }
+.choice { display: flex; align-items: center; gap: .6rem; min-height: 44px; font-weight: 400; }
+.choice input { width: 1.4rem; height: 1.4rem; flex: none; }
+
+.field-error { color: var(--danger); font-weight: 600; margin: .3rem 0 0; min-height: 0; }
+input[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--danger); }
+.error-summary { border: 3px solid var(--danger); background: #FEF3F2; border-radius: .6rem; padding: 1rem 1.2rem; margin-bottom: 1.2rem; }
+.error-summary h2 { margin: 0 0 .4rem; font-size: 1.15rem; color: var(--danger); }
+.error-summary ul { margin: 0; padding-left: 1.2rem; }
+
+.success-box { border: 3px solid var(--green); background: #E9F7EF; border-radius: .6rem; padding: 1rem 1.2rem; margin: 1rem 0; color: #14532D; }
+.success-box strong { display: block; margin-bottom: .2rem; }
+
+/* Day toggle buttons: state shown by tick + colour, not colour alone */
+.days { display: flex; flex-wrap: wrap; gap: .5rem; }
+.day { position: relative; margin: 0; font-weight: 600; }
+.day input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.day span {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 4rem; min-height: 44px; padding: 0 .8rem;
+  border: 2px solid var(--input-border); border-radius: .5rem; background: #fff; color: var(--text);
+}
+.day input:checked + span { background: var(--primary); border-color: var(--primary); color: #fff; }
+.day input:checked + span::before { content: "\2713\00a0"; }
+
+/* Seat stepper */
+.stepper { display: inline-flex; align-items: center; gap: .5rem; }
+.stepper input { width: 4rem; text-align: center; }
+.stepper button { min-width: 44px; padding: 0; font-size: 1.4rem; }
+
+/* Ride cards */
+.results-bar { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end; margin: 1rem 0; }
+.results-bar .field { margin: 0; }
+.ride-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.ride-card { display: grid; gap: .6rem 1rem; grid-template-columns: 1fr auto; align-items: center; }
+.ride-card[hidden], .ride-list[hidden], .empty-state[hidden], .success-box[hidden], .error-summary[hidden], .undo-area[hidden], [hidden] { display: none !important; }
+.ride-card h3 { margin: 0; }
+.ride-meta { margin: 0; color: var(--muted); }
+.ride-price { font-size: 1.4rem; font-weight: 700; color: var(--text); text-align: right; }
+.ride-price small { display: block; font-size: .85rem; font-weight: 400; color: var(--muted); }
+.ride-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+@media (max-width: 36rem) { .ride-card { grid-template-columns: 1fr; } .ride-price { text-align: left; } }
+
+.badge { display: inline-flex; align-items: center; gap: .3rem; font-size: .9rem; font-weight: 600; padding: .1rem .6rem; border-radius: 1rem; background: #E3F0FA; color: #0F3D66; }
+.badge-green { background: #E3F4EA; color: #14532D; }
+.rating { font-weight: 700; color: var(--text); }
+
+.status { display: inline-flex; align-items: center; gap: .35rem; font-weight: 700; padding: .15rem .7rem; border-radius: 1rem; font-size: .95rem; }
+.status-confirmed { background: #E3F4EA; color: #14532D; }
+.status-pending { background: #FEF3C7; color: #78350F; }
+.status-cancelled { background: #FEE4E2; color: #7A271A; }
+
+.empty-state { text-align: center; border: 2px dashed var(--input-border); border-radius: .8rem; padding: 2rem 1rem; background: #fff; }
+
+details { background: #fff; border: 2px solid var(--border); border-radius: .6rem; padding: .6rem 1rem; margin-top: 1.2rem; }
+summary { cursor: pointer; font-weight: 600; min-height: 44px; display: flex; align-items: center; }
+
+dl.facts { display: grid; grid-template-columns: max-content 1fr; gap: .4rem 1.2rem; margin: 0 0 1rem; }
+dl.facts dt { font-weight: 600; }
+dl.facts dd { margin: 0; }
+
+.summary-tiles { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0; }
+.tile { background: #fff; border: 2px solid var(--border); border-radius: .8rem; padding: .8rem 1.2rem; min-width: 10rem; }
+.tile strong { display: block; font-size: 1.6rem; color: var(--primary-dark); }
+
+dialog { max-width: 28rem; border: 3px solid var(--primary); border-radius: .8rem; padding: 1.4rem; }
+dialog::backdrop { background: rgba(11, 46, 89, .55); }
+.dialog-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
+
+.site-footer { border-top: 2px solid var(--border); background: #fff; padding: 1.2rem 0; color: var(--muted); font-size: .95rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+@keyframes pop { from { transform: scale(.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.success-box { animation: pop .25s ease; }

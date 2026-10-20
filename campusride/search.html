@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Find a ride | CampusRide</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="proto-banner">Prototype: all rides, names and prices are sample data.</div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Campus<span>Ride</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="search.html" aria-current="page">Find a ride</a></li>
+          <li><a href="offer.html">Offer a ride</a></li>
+          <li><a href="trips.html">My trips</a></li>
+          <li><a href="signup.html">Sign up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <h1>Find a ride to or from campus</h1>
+    <p>Choose your direction and tell us your regular trip. We will show the best matches first.</p>
+
+    <form id="search-form" action="results.html" method="get" novalidate>
+      <div class="error-summary" role="alert" tabindex="-1" hidden>
+        <h2>Please fix the following</h2>
+        <ul></ul>
+      </div>
+
+      <fieldset>
+        <legend>Direction</legend>
+        <div class="days">
+          <label class="day"><input type="radio" name="direction" value="to" checked><span>Home to campus</span></label>
+          <label class="day"><input type="radio" name="direction" value="from"><span>Campus to home</span></label>
+        </div>
+      </fieldset>
+
+      <div id="route">
+        <div class="field" id="area-field">
+          <label for="from"><span data-to="From" data-from="To">From</span> <span class="hint" data-to="Your suburb or area" data-from="Where you want to be dropped off (suburb or area)">Your suburb or area</span></label>
+          <input type="text" id="from" name="area" list="areas" autocomplete="off" aria-describedby="from-error">
+          <datalist id="areas">
+            <option value="Blouberg">
+            <option value="Rivergate">
+            <option value="Cape Flats">
+            <option value="Hout Bay">
+            <option value="Milnerton">
+          </datalist>
+          <p class="field-error" id="from-error"></p>
+        </div>
+
+        <div class="field" id="campus-field">
+          <label for="campus"><span data-to="To" data-from="From">To</span></label>
+          <select id="campus" name="campus">
+            <option>Main campus</option>
+            <option>City campus</option>
+            <option>Satellite campus</option>
+          </select>
+        </div>
+      </div>
+
+      <fieldset>
+        <legend>Days you travel <span class="hint">Choose all that apply</span></legend>
+        <div class="days">
+          <label class="day"><input type="checkbox" name="days" value="Mon" id="day-mon" aria-describedby="day-mon-error"><span>Mon</span></label>
+          <label class="day"><input type="checkbox" name="days" value="Tue"><span>Tue</span></label>
+          <label class="day"><input type="checkbox" name="days" value="Wed"><span>Wed</span></label>
+          <label class="day"><input type="checkbox" name="days" value="Thu"><span>Thu</span></label>
+          <label class="day"><input type="checkbox" name="days" value="Fri"><span>Fri</span></label>
+          <label class="day"><input type="checkbox" name="days" value="Sat"><span>Sat</span></label>
+          <label class="day"><input type="checkbox" name="days" value="Sun"><span>Sun</span></label>
+        </div>
+        <p class="field-error" id="day-mon-error"></p>
+      </fieldset>
+
+      <div class="field">
+        <label for="arrive"><span data-to="Arrive by" data-from="Leave campus at">Arrive by</span> <span class="hint" data-to="The time you need to be on campus" data-from="The earliest time you can leave campus">The time you need to be on campus</span></label>
+        <input type="time" id="arrive" name="arrive" aria-describedby="arrive-error">
+        <p class="field-error" id="arrive-error"></p>
+      </div>
+
+      <button class="btn btn-large" type="submit">Find rides</button>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">CampusRide: prototype for Part 2 of the POE. Community guidelines: be on time, be respectful, keep each other safe.</div>
+  </footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

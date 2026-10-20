@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ride results | CampusRide</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="proto-banner">Prototype: all rides, names and prices are sample data.</div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Campus<span>Ride</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="search.html" aria-current="page">Find a ride</a></li>
+          <li><a href="offer.html">Offer a ride</a></li>
+          <li><a href="trips.html">My trips</a></li>
+          <li><a href="signup.html">Sign up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <h1>Rides from <span id="route-first">Northside</span> to <span id="route-second">Main campus</span></h1>
+    <p id="result-count" role="status" aria-live="polite"></p>
+
+    <div class="results-bar">
+      <div class="field">
+        <label for="sort">Sort by</label>
+        <select id="sort">
+          <option value="match">Best match</option>
+          <option value="price">Lowest price</option>
+          <option value="time">Earliest departure</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="maxprice">Maximum price per trip</label>
+        <select id="maxprice">
+          <option value="any">Any price</option>
+          <option value="30">Up to R30</option>
+          <option value="40">Up to R40</option>
+          <option value="50">Up to R50</option>
+        </select>
+      </div>
+      <a class="btn btn-secondary" href="search.html">Change search</a>
+    </div>
+
+    <ul class="ride-list" id="ride-list">
+      <li class="card ride-card" data-price="35" data-time="450" data-match="95">
+        <div>
+          <h3>Pieter, <span class="rating">4.8 from 23 trips</span></h3>
+          <p class="ride-meta">Northside to Main campus &middot; Mon to Fri &middot; leaves 07:15 &middot; 3 seats left</p>
+          <p class="ride-meta"><span class="badge badge-green"><span aria-hidden="true">&#10004;</span> Verified student</span></p>
+        </div>
+        <div class="ride-price">R35<small>per trip</small></div>
+        <div class="ride-actions"><a class="btn" href="ride.html">View ride</a></div>
+      </li>
+      <li class="card ride-card" data-price="30" data-time="465" data-match="88">
+        <div>
+          <h3>Lerato, <span class="rating">4.9 from 41 trips</span></h3>
+          <p class="ride-meta">Riverbend to Main campus &middot; Mon, Wed, Fri &middot; leaves 07:30 &middot; 2 seats left</p>
+          <p class="ride-meta"><span class="badge badge-green"><span aria-hidden="true">&#10004;</span> Verified student</span></p>
+        </div>
+        <div class="ride-price">R30<small>per trip</small></div>
+        <div class="ride-actions"><a class="btn" href="ride.html">View ride</a></div>
+      </li>
+      <li class="card ride-card" data-price="45" data-time="420" data-match="76">
+        <div>
+          <h3>Daniel, <span class="rating">4.6 from 12 trips</span></h3>
+          <p class="ride-meta">Hillcrest to Main campus &middot; Tue to Thu &middot; leaves 07:00 &middot; 1 seat left</p>
+          <p class="ride-meta"><span class="badge badge-green"><span aria-hidden="true">&#10004;</span> Verified student</span></p>
+        </div>
+        <div class="ride-price">R45<small>per trip</small></div>
+        <div class="ride-actions"><a class="btn" href="ride.html">View ride</a></div>
+      </li>
+      <li class="card ride-card" data-price="25" data-time="480" data-match="64" data-full="true">
+        <div>
+          <h3>Aisha, <span class="rating">5.0 from 8 trips</span></h3>
+          <p class="ride-meta">Lakeview to Main campus &middot; Mon to Fri &middot; leaves 08:00 &middot; <strong>Ride full</strong></p>
+          <p class="ride-meta"><span class="badge badge-green"><span aria-hidden="true">&#10004;</span> Verified student</span></p>
+        </div>
+        <div class="ride-price">R25<small>per trip</small></div>
+        <div class="ride-actions"><button class="btn" type="button" disabled>Ride full</button><span class="ride-meta">No seats left. Save your search to hear about new rides.</span></div>
+      </li>
+      <li class="card ride-card" data-price="50" data-time="435" data-match="58">
+        <div>
+          <h3>Sam, <span class="rating">4.7 from 17 trips</span></h3>
+          <p class="ride-meta">Oakdale to Main campus &middot; Mon to Fri &middot; leaves 07:15 &middot; 3 seats left</p>
+          <p class="ride-meta"><span class="badge badge-green"><span aria-hidden="true">&#10004;</span> Verified student</span></p>
+        </div>
+        <div class="ride-price">R50<small>per trip</small></div>
+        <div class="ride-actions"><a class="btn" href="ride.html">View ride</a></div>
+      </li>
+
+      <li class="card ride-card" data-direction="from" data-price="35" data-time="990" data-match="95">
+        <div>
+          <h3>Pieter, <span class="rating">4.8 from 23 trips</span></h3>
+          <p class="ride-meta">Main campus to Northside &middot; Mon to Fri &middot; leaves 16:30 &middot; 2 seats left</p>
+          <p class="ride-meta"><span class="badge badge-green"><span aria-hidden="true">&#10004;</span> Verified student</span></p>
+        </div>
+        <div class="ride-price">R35<small>per trip</small></div>
+        <div class="ride-actions"><a class="btn" href="ride.html?direction=from">View ride</a></div>
+      </li>
+      <li class="card ride-card" data-direction="from" data-price="30" data-time="1020" data-match="86">
+        <div>
+          <h3>Lerato, <span class="rating">4.9 from 41 trips</span></h3>
+          <p class="ride-meta">Main campus to Riverbend &middot; Mon, Wed, Fri &middot; leaves 17:00 &middot; 3 seats left</p>
+          <p class="ride-meta"><span class="badge badge-green"><span aria-hidden="true">&#10004;</span> Verified student</span></p>
+        </div>
+        <div class="ride-price">R30<small>per trip</small></div>
+        <div class="ride-actions"><a class="btn" href="ride.html?direction=from">View ride</a></div>
+      </li>
+      <li class="card ride-card" data-direction="from" data-price="50" data-time="960" data-match="70">
+        <div>
+          <h3>Sam, <span class="rating">4.7 from 17 trips</span></h3>
+          <p class="ride-meta">Main campus to Oakdale &middot; Mon to Fri &middot; leaves 16:00 &middot; 1 seat left</p>
+          <p class="ride-meta"><span class="badge badge-green"><span aria-hidden="true">&#10004;</span> Verified student</span></p>
+        </div>
+        <div class="ride-price">R50<small>per trip</small></div>
+        <div class="ride-actions"><a class="btn" href="ride.html?direction=from">View ride</a></div>
+      </li>
+    </ul>
+
+    <div class="empty-state" id="empty-state" hidden>
+      <h2 style="margin-top:0">No rides found yet</h2>
+      <p>Try a higher price limit, or save this search and we will tell you when a ride appears.</p>
+    </div>
+
+    <p style="margin-top:1.2rem">
+      <button class="btn btn-secondary" type="button" id="save-search">Save this search</button>
+    </p>
+    <div class="success-box" id="save-msg" role="status" hidden>
+      <strong>Search saved.</strong> We will email you when a matching ride appears.
+    </div>
+
+    <details>
+      <summary>Map view: pickup points as a list</summary>
+      <p>A map is shown on the full site. This text list gives the same information.</p>
+      <ol>
+        <li>Pieter: Northside Shopping Centre, east entrance</li>
+        <li>Lerato: Riverbend Station car park</li>
+        <li>Daniel: Hillcrest Library, front steps</li>
+        <li>Aisha: Lakeview Mall, taxi rank side</li>
+        <li>Sam: Oakdale Garage forecourt</li>
+      </ol>
+      <ol data-direction="from">
+        <li>Pieter: Main campus, main gate</li>
+        <li>Lerato: Main campus, library entrance</li>
+        <li>Sam: Main campus, visitors' parking</li>
+      </ol>
+    </details>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">CampusRide: prototype for Part 2 of the POE. Community guidelines: be on time, be respectful, keep each other safe.</div>
+  </footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

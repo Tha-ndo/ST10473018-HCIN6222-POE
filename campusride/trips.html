@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My trips | CampusRide</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="proto-banner">Prototype: all rides, names and prices are sample data.</div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Campus<span>Ride</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="search.html">Find a ride</a></li>
+          <li><a href="offer.html">Offer a ride</a></li>
+          <li><a href="trips.html" aria-current="page">My trips</a></li>
+          <li><a href="signup.html">Sign up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <h1>My trips</h1>
+
+    <div class="summary-tiles" aria-label="Your summary">
+      <div class="tile"><strong>12</strong>trips shared</div>
+      <div class="tile"><strong>R420</strong>saved on transport</div>
+    </div>
+    <p>Thank you for sharing the ride. Every shared trip means one less car on the road.</p>
+
+    <h2>Upcoming</h2>
+    <ul class="ride-list" style="margin-bottom:1rem">
+      <li class="card ride-card trip" data-state="confirmed" data-title="Mike, Blouberg to Main campus, Monday 07:15">
+        <div>
+          <h3>Pieter: Northside to Main campus</h3>
+          <p class="ride-meta">Monday &middot; leaves 07:15 &middot; pickup: Bayside Shopping Centre, east entrance</p>
+        </div>
+        <div><span class="status status-confirmed"><span aria-hidden="true">&#10004;</span> Confirmed</span></div>
+        <div class="ride-actions">
+          <button class="btn btn-danger cancel-btn" type="button">Cancel trip</button>
+          <span class="undo-area" hidden>
+            <span>This trip has been cancelled.</span>
+            <button class="btn btn-secondary undo-btn" type="button">Undo</button>
+          </span>
+        </div>
+      </li>
+      <li class="card ride-card trip" data-state="pending" data-title="Lerato, Mike, Main campus to Northside, Monday 16:30 to Main campus, Wednesday 07:30">
+        <div>
+          <h3>Lerato: Riverbend to Main campus</h3>
+          <p class="ride-meta">Wednesday &middot; leaves 07:30 &middot; waiting for Lerato to respond</p>
+        </div>
+        <div><span class="status status-pending"><span aria-hidden="true">&#9203;</span> Pending</span></div>
+        <div class="ride-actions">
+          <button class="btn btn-danger cancel-btn" type="button">Cancel request</button>
+          <span class="undo-area" hidden>
+            <span>This request has been cancelled.</span>
+            <button class="btn btn-secondary undo-btn" type="button">Undo</button>
+          </span>
+        </div>
+      </li>
+      <li class="card ride-card trip" data-state="confirmed" data-title="Mike, Main campus to Northside, Monday 16:30">
+        <div>
+          <h3>Pieter: Main campus to Northside</h3>
+          <p class="ride-meta">Monday &middot; leaves 16:30 &middot; pickup: Main campus, main gate</p>
+        </div>
+        <div><span class="status status-confirmed"><span aria-hidden="true">&#10004;</span> Confirmed</span></div>
+        <div class="ride-actions">
+          <button class="btn btn-danger cancel-btn" type="button">Cancel trip</button>
+          <span class="undo-area" hidden>
+            <span>This trip has been cancelled.</span>
+            <button class="btn btn-secondary undo-btn" type="button">Undo</button>
+          </span>
+        </div>
+      </li>
+    </ul>
+
+    <h2>Rate your last trip</h2>
+    <form id="rating-form" class="card">
+      <p>How was your ride with Sam on Friday?</p>
+      <div class="field">
+        <label for="r-punct">Punctuality</label>
+        <select id="r-punct" name="punctuality">
+          <option>5 out of 5</option><option>4 out of 5</option><option>3 out of 5</option><option>2 out of 5</option><option>1 out of 5</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="r-friend">Friendliness</label>
+        <select id="r-friend" name="friendliness">
+          <option>5 out of 5</option><option>4 out of 5</option><option>3 out of 5</option><option>2 out of 5</option><option>1 out of 5</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="r-safe">Safe driving</label>
+        <select id="r-safe" name="safety">
+          <option>5 out of 5</option><option>4 out of 5</option><option>3 out of 5</option><option>2 out of 5</option><option>1 out of 5</option>
+        </select>
+      </div>
+      <button class="btn" type="submit">Submit rating</button>
+      <p class="ride-meta" style="margin:.8rem 0 0">Is there a problem? You can <a href="trips.html">report or block</a> a user at any time.</p>
+    </form>
+    <div class="success-box" id="rating-thanks" role="status" tabindex="-1" hidden>
+      <strong>Thank you!</strong> Your rating helps other students choose a ride with confidence.
+    </div>
+
+    <dialog id="cancel-dialog" aria-labelledby="dlg-title">
+      <h2 id="dlg-title" style="margin-top:0">Cancel this trip?</h2>
+      <p id="cancel-what"></p>
+      <p>The other person will be told straight away. You can undo this after cancelling.</p>
+      <div class="dialog-actions">
+        <button class="btn btn-danger" type="button" id="confirm-cancel">Yes, cancel</button>
+        <button class="btn" type="button" id="keep-btn">No, keep it</button>
+      </div>
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">CampusRide: prototype for Part 2 of the POE. Community guidelines: be on time, be respectful, keep each other safe.</div>
+  </footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

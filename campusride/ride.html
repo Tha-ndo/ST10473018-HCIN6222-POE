@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ride details | CampusRide</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="proto-banner">Prototype: all rides, names and prices are sample data.</div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Campus<span>Ride</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="search.html" aria-current="page">Find a ride</a></li>
+          <li><a href="offer.html">Offer a ride</a></li>
+          <li><a href="trips.html">My trips</a></li>
+          <li><a href="signup.html">Sign up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <p><a href="results.html">&larr; Back to results</a></p>
+    <h1>Ride with Pieter</h1>
+    <p><span class="badge badge-green"><span aria-hidden="true">&#10004;</span> Verified student</span>
+       &nbsp;<span class="rating">4.8 from 23 trips</span></p>
+
+    <div class="card">
+      <h2 style="margin-top:0">Trip details</h2>
+      <dl class="facts">
+        <dt>Route</dt><dd id="ride-route">Blouberg to Main campus</dd>
+        <dt>Days</dt><dd>Monday to Friday</dd>
+        <dt>Leaves</dt><dd id="ride-leaves">07:15 (arrives about 08:00)</dd>
+        <dt>Pickup point</dt><dd id="ride-pickup">Bayside Shopping Centre, east entrance</dd>
+        <dt>Seats left</dt><dd id="ride-seats">3 of 4</dd>
+        <dt>Cost</dt><dd>R35 per trip, paid directly to the driver</dd>
+      </dl>
+      <p class="ride-meta">Mike's exact home address is never shown. All pickups are at public places.</p>
+    </div>
+
+    <div class="card" style="margin-top:1rem">
+      <h2 style="margin-top:0">About Mike</h2>
+      <p>Third-year Information Systems student. Drives a white hatchback and prefers a quiet ride in the morning.</p>
+      <h3>Recent ratings</h3>
+      <ul>
+        <li>Punctuality: 4.9 out of 5</li>
+        <li>Friendliness: 4.8 out of 5</li>
+        <li>Safe driving: 4.7 out of 5</li>
+      </ul>
+    </div>
+
+    <p style="margin-top:1.4rem">
+      <button class="btn btn-large" type="button" id="request-btn">Request a seat</button>
+    </p>
+    <div class="success-box" id="request-msg" role="status" hidden>
+      <strong>Request sent to Mike.</strong>
+      We will email you when he responds. You can follow the request in <a href="trips.html">My trips</a>.
+    </div>
+
+    <p class="ride-meta">Something not right? <a href="trips.html">Report or block this user</a> from your trips page.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">CampusRide: prototype for Part 2 of the POE. Community guidelines: be on time, be respectful, keep each other safe.</div>
+  </footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
