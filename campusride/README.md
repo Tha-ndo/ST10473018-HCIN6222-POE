@@ -13,6 +13,7 @@ A clickable prototype built with plain HTML, CSS and JavaScript. All rides, name
 | results.html | Ranked results with sort, price filter, empty state and text map list |
 | ride.html | Ride details and "Request a seat" with feedback message |
 | offer.html | Offer a ride in either direction, with optional return trip, seat stepper and cost suggestion |
+| requests.html | Driver view: accept or decline ride requests, with feedback, undo and a confirmation message |
 | trips.html | My trips, cancel confirmation with undo, and trip rating |
 
 ## Design features to point out in your report
